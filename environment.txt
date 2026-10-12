@@ -1,2 +1,0 @@
-OUT_ROOT=/data/jobs
-MAX_CONCURRENT=1

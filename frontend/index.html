@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ml-checker</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>ml-checker</h1>
+    <span class="sub">mobile legends account checker</span>
+  </header>
+
+  <section id="setup" class="card">
+    <label class="lbl">combolist <span class="hint">user:pass, one per line</span></label>
+    <textarea id="combo" placeholder="email@example.com:password&#10;another_user:secret" spellcheck="false"></textarea>
+
+    <details>
+      <summary>advanced</summary>
+      <div class="grid">
+        <div>
+          <label class="lbl">devices file <span class="hint">optional .txt</span></label>
+          <input id="devices" type="file" accept=".txt">
+        </div>
+        <div>
+          <label class="lbl">telegram bot token</label>
+          <input id="tgToken" type="text" placeholder="optional">
+        </div>
+        <div>
+          <label class="lbl">telegram chat id</label>
+          <input id="tgChat" type="text" placeholder="optional">
+        </div>
+      </div>
+    </details>
+
+    <div class="actions">
+      <button id="start">Start</button>
+      <button id="stop" class="ghost" disabled>Stop</button>
+    </div>
+    <p id="err" class="err" hidden></p>
+  </section>
+
+  <section id="run" class="card" hidden>
+    <div class="counters">
+      <div class="counter"><span class="k">progress</span><span id="cProg" class="v">0 / 0</span></div>
+      <div class="counter ok"><span class="k">valid</span><span id="cValid" class="v">0</span></div>
+      <div class="counter bad"><span class="k">invalid</span><span id="cInvalid" class="v">0</span></div>
+      <div class="counter warn"><span class="k">error</span><span id="cError" class="v">0</span></div>
+    </div>
+
+    <div id="log" class="log" aria-live="polite"></div>
+
+    <div class="actions">
+      <button id="dlValid" class="ghost" disabled>Download valid</button>
+      <button id="dlFull"  class="ghost" disabled>Download full</button>
+      <button id="reset"   class="ghost">New run</button>
+    </div>
+  </section>
+
+  <section id="hits" class="card" hidden>
+    <h2>valid hits</h2>
+    <div id="hitList"></div>
+  </section>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>
